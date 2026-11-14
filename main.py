@@ -2,7 +2,9 @@ import string
 import secrets
 
 opcao = 0
-cofreSenha = dict()
+senha = ""
+senhaTitulo = ""
+senhaTituloAntiga = ""
 senhaAlfabeto = string.ascii_letters
 senhaNumero = string.digits
 senhaSimbolo = string.punctuation
@@ -19,27 +21,61 @@ while opcao != 5:
     opcao = int(input("Escolha a opção: "))
 
     if opcao == 1:
+        opcaoSenha = 0
+        senhaTituloAntiga = senhaTitulo
         senhaTitulo = input("Digite o titulo da senha: ")
-        
-        respostaNumero = input("Deseja numeros na senha (S/N)? ")
-        respostaLetras = input("Deseja letras na senha (S/N)? ")
-        quantidadeCaractere = int(input("Digite a quantidade de caracteres: "))
-        if (respostaNumero == 'S' and respostaLetras == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaAlfabeto + senhaNumero) for i in range(quantidadeCaractere))
-        elif (respostaNumero == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaNumero) for i in range(quantidadeCaractere))
-        elif (respostaLetras == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaAlfabeto) for i in range(quantidadeCaractere))
-        else:
-            print("Erro. Digite novamente!")
+        quantidadeCaractere = int(input("Digite a quantidade de caracteres da senha: "))
+        print("""
+1. Somente números
+2. Somente letras
+3. Somente símbolos
+4. Números e letras
+5. números e símbolos
+6. Letras e símbolos
+7. Números, letras e símbolos
+""")
+        opcaoSenha = int(input("Digite a opção desejada: "))
+        match opcaoSenha:
+            case 1:
+                senha = ''.join(secrets.choice(senhaNumero) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case 2:
+                senha = ''.join(secrets.choice(senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case 3:
+                senha = ''.join(secrets.choice(senhaSimbolo) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case 4:
+                senha = ''.join(secrets.choice(senhaNumero + senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue   
+            case 5:
+                senha = ''.join(secrets.choice(senhaNumero + senhaSimbolo) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case 6:
+                senha = ''.join(secrets.choice(senhaSimbolo + senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case 7:
+                senha = ''.join(secrets.choice(senhaNumero  + senhaAlfabeto + senhaSimbolo) for i in range(quantidadeCaractere))
+                print("\nSenha criada com sucesso!\n")
+                continue
+            case default:
+                print("ERRO! Opção incorreta. ")
+                senhaTitulo = senhaTituloAntiga
 
-        print("\nSenha criada com sucesso!\n")
+        
 
     elif opcao == 2:
 
-        if cofreSenha != []:
+        if senha != "":
             print("Senhas criadas: \n")
-            print(cofreSenha)
+            print("Título: ", senhaTitulo)
+            print("Senha: ", senha)
             print("\n\n")
         else:
             print("\nNenhuma senha criada!\n")
@@ -47,35 +83,77 @@ while opcao != 5:
         
 
     elif opcao == 3:
-
+        opcaoSenha = 0
+        senhaTituloAntiga = senhaTitulo
         senhaTitulo = input("Digite o titulo da senha que voce quer modificar: ")
 
-        if senhaTitulo not in cofreSenha:
+        if senhaTitulo != senhaTituloAntiga:
             print("Erro. Essa senha não existe.")
+            senhaTitulo = senhaTituloAntiga
+            continue
+        elif senha == "":
+            print("Não existe senha criada")
+            senhaTitulo = senhaTituloAntiga
             continue
 
-        respostaNumero = input("Deseja numeros na senha (S/N)? ")
-        respostaLetras = input("Deseja letras na senha (S/N)? ")
-        quantidadeCaractere = int(input("Digite a quantidade de caracteres: "))
-
-        if (respostaNumero == 'S' and respostaLetras == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaAlfabeto + senhaNumero) for i in range(quantidadeCaractere))
-        elif (respostaNumero == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaNumero) for i in range(quantidadeCaractere))
-        elif (respostaLetras == 'S'):
-            cofreSenha[senhaTitulo] = ''.join(secrets.choice(senhaAlfabeto) for i in range(quantidadeCaractere))
-        else:
-            print("Erro. Tente novamente!")
-        print("\nSenha alterada com sucesso!\n")
+        quantidadeCaractere = int(input("Digite a quantidade de caracteres da senha: "))
+        print("""
+1. Somente números
+2. Somente letras
+3. Somente símbolos
+4. Números e letras
+5. números e símbolos
+6. Letras e símbolos
+7. Números, letras e símbolos
+""")
+        opcaoSenha = int(input("Digite a opção desejada: "))
+        match opcaoSenha:
+            case 1:
+                senha = ''.join(secrets.choice(senhaNumero) for i in range(quantidadeCaractere))
+                print("Senha modificada!")
+                continue
+            case 2:
+                senha = ''.join(secrets.choice(senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("Senha modificada!")
+                continue
+            case 3:
+                senha = ''.join(secrets.choice(senhaSimbolo) for i in range(quantidadeCaractere))
+                print("Senha modificada!")                
+                continue
+            case 4:
+                senha = ''.join(secrets.choice(senhaNumero + senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("Senha modificada!")                
+                continue   
+            case 5:
+                senha = ''.join(secrets.choice(senhaNumero + senhaSimbolo) for i in range(quantidadeCaractere))
+                print("Senha modificada!")                
+                continue
+            case 6:
+                senha = ''.join(secrets.choice(senhaSimbolo + senhaAlfabeto) for i in range(quantidadeCaractere))
+                print("Senha modificada!")
+                continue
+            case 7:
+                senha = ''.join(secrets.choice(senhaNumero  + senhaAlfabeto + senhaSimbolo) for i in range(quantidadeCaractere))
+                print("Senha modificada!")
+                continue
+            case default:
+                print("ERRO! Opção incorreta. ")
+                senhaTitulo = senhaTituloAntiga
 
     elif opcao == 4:
+        senhaTituloAntiga = senhaTitulo
         senhaTitulo = input("Digite o titulo da senha que voce quer deletar: ")
 
-        if senhaTitulo not in cofreSenha:
+        if senhaTitulo != senhaTituloAntiga:
             print("Essa senha nao existe!")
+            senhaTitulo = senhaTituloAntiga
+            continue
+        elif senha == "":
+            print("Não existe senha criada")
+            senhaTitulo = senhaTituloAntiga
             continue
 
-        cofreSenha.pop(senhaTitulo)
+        senha = ""
         print("\nSenha excluida com sucesso!\n")
 
         
