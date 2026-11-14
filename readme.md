@@ -30,6 +30,7 @@ Onde os dados serão guardados?
 Como o app tomará decisões de fluxo?
 
 --> Escolher as funcionalidades do programa:
+
     - Estrutura de repetição While, usada para perguntar ao usuário qual funcionalidade ele deseja acessar e repetindo essa ação até que o usuário esolha a opção "5. Sair"
     - Estrutura de decisão if/else, usada para acessar cada opção que o usuário escolher, exceto a opção 5, já definida como condição na estrutura While
 
