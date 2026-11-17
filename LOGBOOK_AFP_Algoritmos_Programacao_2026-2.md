@@ -182,13 +182,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 01 — 12/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
+1. **Desafio do ciclo (em 1 frase):** Criar um CRUD apenas com o conhecimento de lógica de programação e auxílio do livro Pense em Python
+2. **O que implementei (commits / arquivos / links):**[ 2 versões do projeto committadas - Desenvolvimento - Refatoração](https://github.com/josepaes23/Repository-academic-CRUD/)
 3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+4. **Desvio ou erro encontrado + causa técnica:** A primeira versão do projeto fugiu do escopo por causa da implementação de listas e dicionários
+5. **Decisão de ajuste + fonte:** Criei uma nova branch chamada development e implementei a primeira versão nessa branch dentro do escopo proposto com variáveis, operadores, condicionais e estruturas de repetição. Mudei a estrutura de if/else para match case nas opções de preferência de senha, a fim de obter mais performance. Além disso mudei a biblioteca random para secrets, pois vi em um blog que a biblioteca secrets é mais segura para a geração de senhas.
+6. **Feedback recebido e o que mudei:** O colaborador gostou do projeto e não abordou mudança.
+7. **Próximo passo:** Implementar a versão modularizada do projeto com funções e procedimentos.
 
 ## 🟢 CICLO 02 — 19/08 — Variáveis, tipos de dados e entrada/saída
 
@@ -213,19 +213,19 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 *Grupo 1 | Prazo segunda 16/11, 23h59 | SEM CONSULTA*
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
-1. _…_
-2. _…_
-3. _…_
-4. _…_ *(opcional)*
+1. O programa precisa da implementação de dicionário dentro de uma variável que guarda a senha e o título da senha, para as funcionalidades de Criar a senha, Ler as senhas, Modificar senha e Deletar senha. O programa deve guardar os dados dentro da lista e utilizar métodos para manipular esses dados.
+2. O programa precisa de bibliotecas externas para implementar a combinação de vários caracteres e formar a senha.
+3. O programa precisa de loops para repetir as funcionalidades e fazer com que várias senhas sejam criadas.
+4. O programa precisa de estruturas de condição para que o CRUD tenha um bom fluxo de acordo com as preferências do usuário.
 
 **1b. Lacunas — o que não sei e preciso descobrir (mínimo 3, com precisão técnica):**
-1. _…_
-2. _…_
-3. _…_
+1. Preciso aprender sobre os métodos que alteram o comportamento de uma lista para implementar no CRUD.
+2. Preciso saber quais são as melhores bibliotecas externas para o meu programa.
+3. Preciso saber qual estrutura de repetição se adequa melhor ao meu programa.
 
 **1c. Hipótese inicial em até 5 linhas — com lógica da área de formação:**
 
-> _…_
+> Não sei como implementar a criação de várias senhas, utilizando apenas variáveis. O problema da primeira versão é que só é possível armazenar 1 senha e 1 título, e modificar apenas essas duas variáveis. Nesse sentido, encontro dificuldade em criar várias variáveis senha1, senha 2... e implementar dentro de um match case. Além disso, o programa quebra se o usuário escrever uma string ou algum número do tipo float nas opções. Isso acontece também em outras partes do código, como na implementação da quantidade de caracteres e na variável "opcaoSenha", atrapalhando o fluxo do programa. 
 
 ### 🧩 CAMPO 02 — Aprofundamento pós-aula
 *AV Qualis — Grupo 1 | Segunda 16/11, 23h59*
@@ -234,21 +234,21 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **2a. Aprofundamento dos objetos de conhecimento (mínimo 2 referências com síntese da contribuição para a solução):**
 
-- **Referência 1:** _…_ — **Contribuição:** _…_
-- **Referência 2:** _…_ — **Contribuição:** _…_
+- **Referência 1:** Listas — **Contribuição:** Aulas do professor Rondinelli e livro Pense em Python
+- **Referência 2:** Dicionários — **Contribuição:** Aulas do professor Rondinelli e livro Pense em Python
 
 **2b. Hipótese revisada — o que mudou em relação ao Campo 01 e por quê:**
 
-> _…_
+> O programa segue a estrutura de repetição while e o fluxo segue de acordo com o número que o usuário coloca. Na refatoração, houve a implementação de um dicionário, com o nome "cofreSenha" que guarda o título e a senha, melhorando a performance do programa. O tipo de dado das variáveis "opcao", "quantidadeCaractere" e "opcaoSenha" foram trocados para string, com a finalidade de usuário poder escrever qualquer coisa sem quebrar o programa. No entanto, o fluxo foi alterado, de forma que se quantidadeCaractere não é um digito, isto é, "quantidadeCaractere.isdigit() == False" o o programa não continua com a geração da senha, voltando para o menu, assim como no caso default do match case para as variáveis "opcao" e "opcaoSenha". Além disso, para evitar conflitos de espaços no inicio e no final do titulo, foi implementado o método strip() que remove os espaços do início e fim do título.
 
 **2c. Dimensionamento inicial de recursos (recurso, quantidade estimada, justificativa técnica — mínimo 3 itens):**
 
 | RECURSO / MATERIAL / INSUMO | QUANTIDADE ESTIMADA | JUSTIFICATIVA TÉCNICA |
 |---|---|---|
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
+| Livro Pense em Python | Cap. 10 e 11 | Aprender as diferenças entre listas e dicionários para aplicar no projeto |
+| site hashtagtreinamentos | Como criar senhas seguras em python | entender as diferenças entre random e secrets para aplicar no projeto |
+| docs.python.org | documentação da biblioteca secrets | entender quais comandos devem ser implementados a partir da biblioteca secrets |
+| Aulas de Lógica de Programação e Algoritmos | aproximadamente 80hrs de aula | Entender reconhecimento de padrões e abstrações, além de compreender a sintaxe de python |
 
 #### Registro do Ciclo 02 — 19/08
 1. **Desafio do ciclo (em 1 frase):** _…_
